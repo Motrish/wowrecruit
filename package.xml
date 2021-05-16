@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="portal" version="2.3.39.0">
+	<folder>wowtbcrecruit</folder>
+	<name>WoW TBC Recruit</name>
+	<author>Motrish</author>
+	<authorEmail>nehmer.michael@gmx.de</authorEmail>
+	<creationDate>2021-05-16</creationDate>
+	<copyright>(C)2021 Motrish</copyright>
+	<version>1.0</version>
+	<level>stable</level>
+</install>
