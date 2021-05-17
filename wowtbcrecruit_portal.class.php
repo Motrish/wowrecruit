@@ -10,6 +10,8 @@
  * three Extra Elements and increase the "ClassXX" by 1
  * As an Example Deathknight is already there as comment.
  *  
+ * add 3 to the $classcount in row 462
+ * 
  * Copy paste a part of the HTML Code and Enter it directly unter it (Example: <!-- Warrior --> .......to..... <!-- Warrior END -->)
  * 
  * Add some Images with 60x60 into portal/wowtbcrecruit/wcf/images/recruitment/ and name it like "class_warrior.png" or "warrior_spec_2.png"
@@ -37,6 +39,7 @@ class wowtbcrecruit_portal extends portal_generic {
 		'multiple'		=> false,
 		'lang_prefix'	=> 'wowtbcrecruit_'
 	);
+
 
 	protected static $positions = array( 'left1', 'left2', 'right');
 	public function get_settings($state){
@@ -453,255 +456,20 @@ class wowtbcrecruit_portal extends portal_generic {
 	public function output() {
 
 
-#For "1" More Class just uncomment 3 Rows. (Demonhunter 2)
+#To increase Classes add 3 to $classcount
+
+$classcount=28;
+$searchcount=4;
 
 
+for($i=1; $i<=$classcount; $i++){
+	$o = "Class".$i;
+	for($j=1; $j<=$searchcount; $j++){
+		if($this->config($o) == "recruit_$j"){${"Down".$i}=$j;}	
+	}
+}	
 
 		
-		if($this->config('Class1') == 'recruit_0'){$Down1=0;}	
-		if($this->config('Class2') == 'recruit_0'){$Down2=0;}
-		if($this->config('Class3') == 'recruit_0'){$Down3=0;}
-		if($this->config('Class4') == 'recruit_0'){$Down4=0;}
-		if($this->config('Class5') == 'recruit_0'){$Down5=0;}
-		if($this->config('Class6') == 'recruit_0'){$Down6=0;}
-		if($this->config('Class7') == 'recruit_0'){$Down7=0;}
-		if($this->config('Class8') == 'recruit_0'){$Down8=0;}
-		if($this->config('Class9') == 'recruit_0'){$Down9=0;}
-		if($this->config('Class10') == 'recruit_0'){$Down10=0;}
-		if($this->config('Class11') == 'recruit_0'){$Down11=0;}
-		if($this->config('Class12') == 'recruit_0'){$Down12=0;}
-		if($this->config('Class13') == 'recruit_0'){$Down13=0;}
-		if($this->config('Class14') == 'recruit_0'){$Down14=0;}
-		if($this->config('Class15') == 'recruit_0'){$Down15=0;}
-		if($this->config('Class16') == 'recruit_0'){$Down16=0;}
-		if($this->config('Class17') == 'recruit_0'){$Down17=0;}
-		if($this->config('Class18') == 'recruit_0'){$Down18=0;}
-		if($this->config('Class19') == 'recruit_0'){$Down19=0;}
-		if($this->config('Class20') == 'recruit_0'){$Down20=0;}
-		if($this->config('Class21') == 'recruit_0'){$Down21=0;}
-		if($this->config('Class22') == 'recruit_0'){$Down22=0;}
-		if($this->config('Class23') == 'recruit_0'){$Down23=0;}
-		if($this->config('Class24') == 'recruit_0'){$Down24=0;}
-		if($this->config('Class25') == 'recruit_0'){$Down25=0;}
-		if($this->config('Class26') == 'recruit_0'){$Down26=0;}
-		if($this->config('Class27') == 'recruit_0'){$Down27=0;}
-		if($this->config('Class28') == 'recruit_0'){$Down28=0;}
-		#if($this->config('Class29') == 'recruit_0'){$Down19=0;}
-		#if($this->config('Class30') == 'recruit_0'){$Down20=0;}
-		#if($this->config('Class31') == 'recruit_0'){$Down21=0;}
-		#if($this->config('Class32') == 'recruit_0'){$Down22=0;}
-		#if($this->config('Class33') == 'recruit_0'){$Down23=0;}
-		#if($this->config('Class34') == 'recruit_0'){$Down24=0;}
-		#if($this->config('Class35') == 'recruit_0'){$Down25=0;}
-		#if($this->config('Class36') == 'recruit_0'){$Down26=0;}
-		#if($this->config('Class37') == 'recruit_0'){$Down27=0;}
-		#if($this->config('Class38') == 'recruit_0'){$Down28=0;}		
-		#if($this->config('Class39') == 'recruit_0'){$Down19=0;}
-		#if($this->config('Class40') == 'recruit_0'){$Down20=0;}
-		#if($this->config('Class41') == 'recruit_0'){$Down21=0;}
-		#if($this->config('Class42') == 'recruit_0'){$Down22=0;}
-		#if($this->config('Class43') == 'recruit_0'){$Down23=0;}
-		#if($this->config('Class44') == 'recruit_0'){$Down24=0;}
-		#if($this->config('Class45') == 'recruit_0'){$Down25=0;}
-		#if($this->config('Class46') == 'recruit_0'){$Down26=0;}
-		#if($this->config('Class47') == 'recruit_0'){$Down27=0;}
-		#if($this->config('Class48') == 'recruit_0'){$Down28=0;}
-
-		if($this->config('Class1') == 'recruit_1'){$Down1=1;}	
-		if($this->config('Class2') == 'recruit_1'){$Down2=1;}
-		if($this->config('Class3') == 'recruit_1'){$Down3=1;}
-		if($this->config('Class4') == 'recruit_1'){$Down4=1;}
-		if($this->config('Class5') == 'recruit_1'){$Down5=1;}
-		if($this->config('Class6') == 'recruit_1'){$Down6=1;}
-		if($this->config('Class7') == 'recruit_1'){$Down7=1;}
-		if($this->config('Class8') == 'recruit_1'){$Down8=1;}
-		if($this->config('Class9') == 'recruit_1'){$Down9=1;}
-		if($this->config('Class10') == 'recruit_1'){$Down11=1;}
-		if($this->config('Class11') == 'recruit_1'){$Down11=1;}
-		if($this->config('Class12') == 'recruit_1'){$Down12=1;}
-		if($this->config('Class13') == 'recruit_1'){$Down13=1;}
-		if($this->config('Class14') == 'recruit_1'){$Down14=1;}
-		if($this->config('Class15') == 'recruit_1'){$Down15=1;}
-		if($this->config('Class16') == 'recruit_1'){$Down16=1;}
-		if($this->config('Class17') == 'recruit_1'){$Down17=1;}
-		if($this->config('Class18') == 'recruit_1'){$Down18=1;}
-		if($this->config('Class19') == 'recruit_1'){$Down19=1;}
-		if($this->config('Class20') == 'recruit_1'){$Down21=1;}
-		if($this->config('Class21') == 'recruit_1'){$Down21=1;}
-		if($this->config('Class22') == 'recruit_1'){$Down22=1;}
-		if($this->config('Class23') == 'recruit_1'){$Down23=1;}
-		if($this->config('Class24') == 'recruit_1'){$Down24=1;}
-		if($this->config('Class25') == 'recruit_1'){$Down25=1;}
-		if($this->config('Class26') == 'recruit_1'){$Down26=1;}
-		if($this->config('Class27') == 'recruit_1'){$Down27=1;}
-		if($this->config('Class28') == 'recruit_1'){$Down28=1;}
-		#if($this->config('Class29') == 'recruit_1'){$Down19=1;}
-		#if($this->config('Class30') == 'recruit_1'){$Down20=1;}
-		#if($this->config('Class31') == 'recruit_1'){$Down21=1;}
-		#if($this->config('Class32') == 'recruit_1'){$Down22=1;}
-		#if($this->config('Class33') == 'recruit_1'){$Down23=1;}
-		#if($this->config('Class34') == 'recruit_1'){$Down24=1;}
-		#if($this->config('Class35') == 'recruit_1'){$Down25=1;}
-		#if($this->config('Class36') == 'recruit_1'){$Down26=1;}
-		#if($this->config('Class37') == 'recruit_1'){$Down27=1;}
-		#if($this->config('Class38') == 'recruit_1'){$Down28=1;}		
-		#if($this->config('Class39') == 'recruit_1'){$Down19=1;}
-		#if($this->config('Class40') == 'recruit_1'){$Down20=1;}
-		#if($this->config('Class41') == 'recruit_1'){$Down21=1;}
-		#if($this->config('Class42') == 'recruit_1'){$Down22=1;}
-		#if($this->config('Class43') == 'recruit_1'){$Down23=1;}
-		#if($this->config('Class44') == 'recruit_1'){$Down24=1;}
-		#if($this->config('Class45') == 'recruit_1'){$Down25=1;}
-		#if($this->config('Class46') == 'recruit_1'){$Down26=1;}
-		#if($this->config('Class47') == 'recruit_1'){$Down27=1;}
-		#if($this->config('Class48') == 'recruit_1'){$Down28=1;}
-
-		if($this->config('Class1') == 'recruit_2'){$Down1=2;}	
-		if($this->config('Class2') == 'recruit_2'){$Down2=2;}
-		if($this->config('Class3') == 'recruit_2'){$Down3=2;}
-		if($this->config('Class4') == 'recruit_2'){$Down4=2;}
-		if($this->config('Class5') == 'recruit_2'){$Down5=2;}
-		if($this->config('Class6') == 'recruit_2'){$Down6=2;}
-		if($this->config('Class7') == 'recruit_2'){$Down7=2;}
-		if($this->config('Class8') == 'recruit_2'){$Down8=2;}
-		if($this->config('Class9') == 'recruit_2'){$Down9=2;}
-		if($this->config('Class10') == 'recruit_2'){$Down12=2;}
-		if($this->config('Class11') == 'recruit_2'){$Down11=2;}
-		if($this->config('Class12') == 'recruit_2'){$Down12=2;}
-		if($this->config('Class13') == 'recruit_2'){$Down13=2;}
-		if($this->config('Class14') == 'recruit_2'){$Down14=2;}
-		if($this->config('Class15') == 'recruit_2'){$Down15=2;}
-		if($this->config('Class16') == 'recruit_2'){$Down16=2;}
-		if($this->config('Class17') == 'recruit_2'){$Down17=2;}
-		if($this->config('Class18') == 'recruit_2'){$Down18=2;}
-		if($this->config('Class19') == 'recruit_2'){$Down19=2;}
-		if($this->config('Class20') == 'recruit_2'){$Down22=2;}
-		if($this->config('Class21') == 'recruit_2'){$Down21=2;}
-		if($this->config('Class22') == 'recruit_2'){$Down22=2;}
-		if($this->config('Class23') == 'recruit_2'){$Down23=2;}
-		if($this->config('Class24') == 'recruit_2'){$Down24=2;}
-		if($this->config('Class25') == 'recruit_2'){$Down25=2;}
-		if($this->config('Class26') == 'recruit_2'){$Down26=2;}
-		if($this->config('Class27') == 'recruit_2'){$Down27=2;}
-		if($this->config('Class28') == 'recruit_2'){$Down28=2;}
-		#if($this->config('Class29') == 'recruit_2'){$Down19=2;}
-		#if($this->config('Class30') == 'recruit_2'){$Down20=2;}
-		#if($this->config('Class31') == 'recruit_2'){$Down21=2;}
-		#if($this->config('Class32') == 'recruit_2'){$Down22=2;}
-		#if($this->config('Class33') == 'recruit_2'){$Down23=2;}
-		#if($this->config('Class34') == 'recruit_2'){$Down24=2;}
-		#if($this->config('Class35') == 'recruit_2'){$Down25=2;}
-		#if($this->config('Class36') == 'recruit_2'){$Down26=2;}
-		#if($this->config('Class37') == 'recruit_2'){$Down27=2;}
-		#if($this->config('Class38') == 'recruit_2'){$Down28=2;}		
-		#if($this->config('Class39') == 'recruit_2'){$Down19=2;}
-		#if($this->config('Class40') == 'recruit_2'){$Down20=2;}
-		#if($this->config('Class41') == 'recruit_2'){$Down21=2;}
-		#if($this->config('Class42') == 'recruit_2'){$Down22=2;}
-		#if($this->config('Class43') == 'recruit_2'){$Down23=2;}
-		#if($this->config('Class44') == 'recruit_2'){$Down24=2;}
-		#if($this->config('Class45') == 'recruit_2'){$Down25=2;}
-		#if($this->config('Class46') == 'recruit_2'){$Down26=2;}
-		#if($this->config('Class47') == 'recruit_2'){$Down27=2;}
-		#if($this->config('Class48') == 'recruit_2'){$Down28=2;}
-
-		if($this->config('Class1') == 'recruit_3'){$Down1=3;}	
-		if($this->config('Class2') == 'recruit_3'){$Down2=3;}
-		if($this->config('Class3') == 'recruit_3'){$Down3=3;}
-		if($this->config('Class4') == 'recruit_3'){$Down4=3;}
-		if($this->config('Class5') == 'recruit_3'){$Down5=3;}
-		if($this->config('Class6') == 'recruit_3'){$Down6=3;}
-		if($this->config('Class7') == 'recruit_3'){$Down7=3;}
-		if($this->config('Class8') == 'recruit_3'){$Down8=3;}
-		if($this->config('Class9') == 'recruit_3'){$Down9=3;}
-		if($this->config('Class10') == 'recruit_3'){$Down13=3;}
-		if($this->config('Class11') == 'recruit_3'){$Down11=3;}
-		if($this->config('Class12') == 'recruit_3'){$Down12=3;}
-		if($this->config('Class13') == 'recruit_3'){$Down13=3;}
-		if($this->config('Class14') == 'recruit_3'){$Down14=3;}
-		if($this->config('Class15') == 'recruit_3'){$Down15=3;}
-		if($this->config('Class16') == 'recruit_3'){$Down16=3;}
-		if($this->config('Class17') == 'recruit_3'){$Down17=3;}
-		if($this->config('Class18') == 'recruit_3'){$Down18=3;}
-		if($this->config('Class19') == 'recruit_3'){$Down19=3;}
-		if($this->config('Class20') == 'recruit_3'){$Down23=3;}
-		if($this->config('Class21') == 'recruit_3'){$Down21=3;}
-		if($this->config('Class22') == 'recruit_3'){$Down22=3;}
-		if($this->config('Class23') == 'recruit_3'){$Down23=3;}
-		if($this->config('Class24') == 'recruit_3'){$Down24=3;}
-		if($this->config('Class25') == 'recruit_3'){$Down25=3;}
-		if($this->config('Class26') == 'recruit_3'){$Down26=3;}
-		if($this->config('Class27') == 'recruit_3'){$Down27=3;}	
-		if($this->config('Class28') == 'recruit_3'){$Down28=3;}	
-		#if($this->config('Class29') == 'recruit_3'){$Down29=3;}
-		#if($this->config('Class30') == 'recruit_3'){$Down30=3;}
-		#if($this->config('Class31') == 'recruit_3'){$Down31=3;}
-		#if($this->config('Class32') == 'recruit_3'){$Down32=3;}
-		#if($this->config('Class33') == 'recruit_3'){$Down33=3;}
-		#if($this->config('Class34') == 'recruit_3'){$Down34=3;}
-		#if($this->config('Class35') == 'recruit_3'){$Down35=3;}
-		#if($this->config('Class36') == 'recruit_3'){$Down36=3;}
-		#if($this->config('Class37') == 'recruit_3'){$Down37=3;}
-		#if($this->config('Class38') == 'recruit_3'){$Down38=3;}		
-		#if($this->config('Class39') == 'recruit_3'){$Down39=3;}
-		#if($this->config('Class40') == 'recruit_3'){$Down40=3;}
-		#if($this->config('Class41') == 'recruit_3'){$Down41=3;}
-		#if($this->config('Class42') == 'recruit_3'){$Down42=3;}
-		#if($this->config('Class43') == 'recruit_3'){$Down43=3;}
-		#if($this->config('Class44') == 'recruit_3'){$Down44=3;}
-		#if($this->config('Class45') == 'recruit_3'){$Down45=3;}
-		#if($this->config('Class46') == 'recruit_3'){$Down46=3;}
-		#if($this->config('Class47') == 'recruit_3'){$Down47=3;}
-		#if($this->config('Class48') == 'recruit_3'){$Down48=3;}
-	
-		if($this->config('Class1') == 'recruit_4'){$Down1=4;}	
-		if($this->config('Class2') == 'recruit_4'){$Down2=4;}
-		if($this->config('Class3') == 'recruit_4'){$Down3=4;}
-		if($this->config('Class4') == 'recruit_4'){$Down4=4;}
-		if($this->config('Class5') == 'recruit_4'){$Down5=4;}
-		if($this->config('Class6') == 'recruit_4'){$Down6=4;}
-		if($this->config('Class7') == 'recruit_4'){$Down7=4;}
-		if($this->config('Class8') == 'recruit_4'){$Down8=4;}
-		if($this->config('Class9') == 'recruit_4'){$Down9=4;}
-		if($this->config('Class10') == 'recruit_4'){$Down10=4;}
-		if($this->config('Class11') == 'recruit_4'){$Down11=4;}
-		if($this->config('Class12') == 'recruit_4'){$Down12=4;}
-		if($this->config('Class13') == 'recruit_4'){$Down13=4;}
-		if($this->config('Class14') == 'recruit_4'){$Down14=4;}
-		if($this->config('Class15') == 'recruit_4'){$Down15=4;}
-		if($this->config('Class16') == 'recruit_4'){$Down16=4;}
-		if($this->config('Class17') == 'recruit_4'){$Down17=4;}
-		if($this->config('Class18') == 'recruit_4'){$Down18=4;}
-		if($this->config('Class19') == 'recruit_4'){$Down19=4;}
-		if($this->config('Class20') == 'recruit_4'){$Down20=4;}
-		if($this->config('Class21') == 'recruit_4'){$Down21=4;}
-		if($this->config('Class22') == 'recruit_4'){$Down22=4;}
-		if($this->config('Class23') == 'recruit_4'){$Down23=4;}
-		if($this->config('Class24') == 'recruit_4'){$Down24=4;}
-		if($this->config('Class25') == 'recruit_4'){$Down25=4;}
-		if($this->config('Class26') == 'recruit_4'){$Down26=4;}
-		if($this->config('Class27') == 'recruit_4'){$Down27=4;}
-		if($this->config('Class28') == 'recruit_4'){$Down28=4;}
-		#if($this->config('Class29') == 'recruit_4'){$Down29=4;}
-		#if($this->config('Class30') == 'recruit_4'){$Down30=4;}
-		#if($this->config('Class31') == 'recruit_4'){$Down31=4;}
-		#if($this->config('Class32') == 'recruit_4'){$Down32=4;}
-		#if($this->config('Class33') == 'recruit_4'){$Down33=4;}
-		#if($this->config('Class34') == 'recruit_4'){$Down34=4;}
-		#if($this->config('Class35') == 'recruit_4'){$Down35=4;}
-		#if($this->config('Class36') == 'recruit_4'){$Down36=4;}
-		#if($this->config('Class37') == 'recruit_4'){$Down37=4;}
-		#if($this->config('Class38') == 'recruit_4'){$Down38=4;}		
-		#if($this->config('Class39') == 'recruit_4'){$Down39=4;}
-		#if($this->config('Class40') == 'recruit_4'){$Down40=4;}
-		#if($this->config('Class41') == 'recruit_4'){$Down41=4;}
-		#if($this->config('Class42') == 'recruit_4'){$Down42=4;}
-		#if($this->config('Class43') == 'recruit_4'){$Down43=4;}
-		#if($this->config('Class44') == 'recruit_4'){$Down44=4;}
-		#if($this->config('Class45') == 'recruit_4'){$Down45=4;}
-		#if($this->config('Class46') == 'recruit_4'){$Down46=4;}
-		#if($this->config('Class47') == 'recruit_4'){$Down47=4;}
-		#if($this->config('Class48') == 'recruit_4'){$Down48=4;}
 		
 $jspath=$this->server_path."portal/wowtbcrecruit/wcf/style/";
 $csspath=$this->server_path."portal/wowtbcrecruit/wcf/js/";
