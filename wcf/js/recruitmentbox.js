@@ -36,7 +36,9 @@ jQuery(document).ready
 				else if(document.documentElement.lang == "ru"){ 
 					var text1 = 'Набор открыт.<br>Присоедениться!';
 					var text2 = 'Кол-во свободных мест на класс: ';
-					var text3 = 'Набор персонажей данной специализации закрыт.';}					
+					var text3 = 'Набор персонажей данной специализации закрыт.';}	
+				// To Add a Language just add another else if with language shortcut 	
+					
 								
 				// Hover over code
 				var id = jQuery(this).parent().attr('id');
