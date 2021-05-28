@@ -95,17 +95,17 @@ class wowtbcrecruit_portal extends portal_generic {
 				),
 			),	
 		#Druid4
-		'Class4'	=> array(
-			'type'		=> 'dropdown',
-			'class'		=> 'js_reload',
-			'options'	=> array(
-				'recruit_0'	=> $this->user->lang('recruit_0'),
-				'recruit_1'	=> $this->user->lang('recruit_1'),
-				'recruit_2'	=> $this->user->lang('recruit_2'),
-				'recruit_3'	=> $this->user->lang('recruit_3'),
-				'recruit_4'	=> $this->user->lang('recruit_4'),	
-			),
-		),									
+			'Class4'	=> array(
+				'type'		=> 'dropdown',
+				'class'		=> 'js_reload',
+				'options'	=> array(
+					'recruit_0'	=> $this->user->lang('recruit_0'),
+					'recruit_1'	=> $this->user->lang('recruit_1'),
+					'recruit_2'	=> $this->user->lang('recruit_2'),
+					'recruit_3'	=> $this->user->lang('recruit_3'),
+					'recruit_4'	=> $this->user->lang('recruit_4'),	
+				),
+			),									
 		#Hunter1
 			'Class5'	=> array(
 				'type'		=> 'dropdown',
@@ -396,7 +396,7 @@ class wowtbcrecruit_portal extends portal_generic {
 					'recruit_4'	=> $this->user->lang('recruit_4'),
 
 				),
-				),
+			),
 
 #		#Death-Knight1
 #			'Class30'	=> array(
