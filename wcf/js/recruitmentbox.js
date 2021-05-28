@@ -36,16 +36,14 @@ jQuery(document).ready
 				else if(document.documentElement.lang == "ru"){ 
 					var text1 = 'Набор открыт.<br>Присоедениться!';
 					var text2 = 'Кол-во свободных мест на класс: ';
-					var text3 = 'Набор персонажей данной специализации закрыт.';}	
-				// To Add a Language just add another else if with language shortcut 	
-					
+					var text3 = 'Набор персонажей данной специализации закрыт.';}					
 								
 				// Hover over code
 				var id = jQuery(this).parent().attr('id');
 				var className = jQuery(this).siblings(".className").text();
 				var classIcon = '<div class="specToolTipIcon ' + fraction + '"><img src=' + jQuery(this).siblings(".classIcon").children('img:first').attr('src') + '></div>';
 				var specIcon = '<div class="specToolTipIcon ' + fraction +'"><img src=' + jQuery(this).children('img:first').attr('src')+ '></div>';
-				var content = '<div class="specToolTipHead" id="' + id + '">' + jQuery(this).attr('title') + ' - ' + className + '</div>';
+				var content = '<div class="specToolTipHead" id="' + id + '">' + jQuery(this).attr('alt') + ' - ' + className + '</div>';
 				content = content + specIcon + classIcon;
 				if (jQuery(this).children('.classSpecOverlay').attr('id') == 'active')
 				{
