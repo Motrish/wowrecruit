@@ -471,8 +471,8 @@ for($i=1; $i<=$classcount; $i++){
 
 		
 		
-$jspath=$this->server_path."portal/wowtbcrecruit/wcf/style/";
-$csspath=$this->server_path."portal/wowtbcrecruit/wcf/js/";
+$csspath=$this->server_path."portal/wowtbcrecruit/wcf/style/";
+$jspath=$this->server_path."portal/wowtbcrecruit/wcf/js/";
 $Imagepath=$this->server_path."portal/wowtbcrecruit/wcf/images/recruitment/";
 
 		if($this->config('Fraction') == 'recruit_Alliance'){$fraction="alliance_logo.png";}	
@@ -482,8 +482,8 @@ $Imagepath=$this->server_path."portal/wowtbcrecruit/wcf/images/recruitment/";
 
 
  $out= "<div class='containerContent'>
-<link rel='stylesheet' type='text/css' href='".$jspath."recruitmentbox.css'>
-<script type='text/javascript' src='".$csspath."recruitmentbox.js'></script>
+<link rel='stylesheet' type='text/css' href='".$csspath."recruitmentbox.css'>
+<script type='text/javascript' src='".$jspath."recruitmentbox.js'></script>
 <div class='recruitmentBox'>
 	<div class='recruitmentBack' id='recruitback'style='background-image:url(".$Imagepath."".$fraction.");'></div>
 	<!-- Druid -->
