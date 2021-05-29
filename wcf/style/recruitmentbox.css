@@ -59,7 +59,7 @@
 	
 	div.classSpecCounter {
 	font-family: 'Roboto', sans-serif;
-	font-size:10px;
+	font-size:12px;
 	-webkit-font-smoothing:antialiased;
 	text-shadow:#000 0 0 1px,#000 0 0 1px,#000 0 0 1px,#000 0 0 1px,#000 0 0 1px,#000 0 0 1px,#000 0 0 1px,#000 0 0 1px,#000 0 0 1px;
 	position:absolute;
@@ -67,7 +67,11 @@
 	right:2px;
 	text-align:right;
 	background:transparent;
-	color:#fff
+	color:#fff;
+	text-shadow: -1px 1px 0 #000,
+	1px 1px 0 #000,
+   1px -1px 0 #000,
+  -1px -1px 0 #000;
 	}
 	
 	div.classSpecOverlay {
