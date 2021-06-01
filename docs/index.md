@@ -1,12 +1,15 @@
-## Welcome to GitHub Pages
+# WoW Recruit EQDKP Plus Portal Plugin
 
-You can use the [editor on GitHub](https://github.com/Motrish/wowrecruit/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+This Page is your guide to install this great plugin to your EQDKP Plus website.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Download
+##Download
 Click here: [Download](https://github.com/Motrish/wowrecruit/raw/main/docs/wowrecruit.zip) to download the zip-File.
 
-### Jekyll Themes
+## Installation
 
-### Support or Contact
+## Configuration
+
+1) Choose Your Faction
+2) Choose Your Expansion
+3) Configure each specialisation
+
