@@ -12,18 +12,18 @@ if ( !defined('EQDKP_INC') ){
 	header ('Content-Length:'. Filesize($cache_file));
 }
 
-class wowtbcrecruit_portal extends portal_generic {
+class wowrecruit_portal extends portal_generic {
 
-	protected static $path		= 'wowtbcrecruit';
+	protected static $path		= 'wowrecruit';
 	protected static $data		= array(
-		'name'			=> 'WoW TBC Recruit',
+		'name'			=> 'WoW Recruit',
 		'version'		=> '1.0',
 		'author'		=> 'Motrish',
 		'icon'			=> 'fa-code',
 		'contact'		=> 'nehmer.michael@gmx.de',
 		'description'	=> 'Shows the actual recruit of the wow Raid',
 		'multiple'		=> false,
-		'lang_prefix'	=> 'wowtbcrecruit_'
+		'lang_prefix'	=> 'wowrecruit_'
 	);
 
 	protected static $positions = array( 'left1', 'left2', 'right');
@@ -135,9 +135,9 @@ for($i=1; $i<=$classcount; $i++){
 	}
 }	
 ###############################################		
-$jspath=$this->server_path."portal/wowtbcrecruit/wcf/style/";
-$csspath=$this->server_path."portal/wowtbcrecruit/wcf/js/";
-$Imagepath=$this->server_path."portal/wowtbcrecruit/wcf/images/recruitment/";
+$jspath=$this->server_path."portal/wowrecruit/wcf/style/";
+$csspath=$this->server_path."portal/wowrecruit/wcf/js/";
+$Imagepath=$this->server_path."portal/wowrecruit/wcf/images/recruitment/";
 ###############################################
 		if($this->config('Fraction') == 'recruit_Alliance'){$fraction="alliance_logo.png";$border='alliance';}	
 		if($this->config('Fraction') == 'recruit_Horde'){$fraction="horde_logo.png";$border='horde';}
@@ -159,12 +159,12 @@ for ($i = 1; $i <= $arrlength; $i++) {
 			<div class='classIcon ".$border."'>
 				<img src='".$Imagepath."class_".$classes[$i][0].".png' class='classImage'>
 			</div>
-			<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class".$i."")."</div>";
+			<div class='className'>".$this->user->lang("wowrecruit_c_Class".$i."")."</div>";
 
 			for ($j = 1; $j <=  $classes[$i][1]; $j++) {
 				#Speccstart
 				$out .=" 	
-						<div class='classSpec ".$border."' alt='".$this->user->lang("wowtbcrecruit_s_Class".$count."")."'>
+						<div class='classSpec ".$border."' alt='".$this->user->lang("wowrecruit_s_Class".$count."")."'>
 							<div class='classSpecCounter'>".${"Down".$count}."</div><!-- Activate Spec here -->
 							<div class='classSpecOverlay' id='inactive'></div>
 							<img src='".$Imagepath."".$classes[$i][0]."_spec_".$j.".png' class='specImage'>
