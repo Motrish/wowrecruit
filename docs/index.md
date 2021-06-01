@@ -2,7 +2,7 @@
 
 This Page is your guide to install this great plugin to your EQDKP Plus website.
 
-##Download
+## Download
 Click here: [**Download**](https://github.com/Motrish/wowrecruit/raw/main/docs/wowrecruit.zip) to download the zip-File.
 
 ## Installation
