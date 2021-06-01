@@ -133,6 +133,7 @@ $lang['recruit_Horde']				= 'Horde';
 
 
 $lang['recruit_Classic']			= 'Classic';
+$lang['recruit_TBC']			= 'TBC (Pala/Sham)';
 $lang['recruit_WotLK']			= 'Wotlk (DK)';
 $lang['recruit_MoP']				= 'MoP (Monk)';
 $lang['recruit_Legion']				= 'Legion (DH)';

@@ -70,6 +70,7 @@ $arrlength = count($classes);
 			'class'		=> 'js_reload',
 			'options'	=> array(
 				'recruit_Classic'	=> $this->user->lang('recruit_Classic'),
+				'recruit_TBC'	=> $this->user->lang('recruit_TBC'),
 				'recruit_WotLK'	=> $this->user->lang('recruit_WotLK'),
 				'recruit_MoP'	=> $this->user->lang('recruit_MoP'),
 				'recruit_Legion'	=> $this->user->lang('recruit_Legion'),
@@ -121,7 +122,8 @@ foreach($classes as $value) {
 }
 ###############################################
 $arrlength = count($classes);
-if($this->config('Expansion') == 'recruit_Classic'){$arrlength = $arrlength-3;}	
+if($this->config('Expansion') == 'recruit_Classic'){$arrlength = $arrlength-3;}
+if($this->config('Expansion') == 'recruit_TBC'){$arrlength = $arrlength-3;}
 if($this->config('Expansion') == 'recruit_WotLK'){$arrlength = $arrlength-2;}	
 if($this->config('Expansion') == 'recruit_MoP'){$arrlength = $arrlength-1;}		
 ###############################################
@@ -171,6 +173,19 @@ for ($i = 1; $i <= $arrlength; $i++) {
 					}	
 #Classend
 $out .="</div>";
+
+if($this->config('Expansion') == 'recruit_Classic'){
+	if($border=='alliance'){		if($i == 5){$i++;}}
+	if($border=='horde'){		if($i == 3){$i++;}}
+}
+
+
+
+
+
+
+
+
 }
 #Ende
 $out .="</div></div>" ;
