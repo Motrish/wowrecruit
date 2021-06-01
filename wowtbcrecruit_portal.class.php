@@ -4,19 +4,6 @@
  *
  *	Copyright (C) 2021 Motrish & Mothman from Blackmoore-EU
  *
- * Guide for more Classes:
- * 
- * Add in the public function get_settings($state)  -> $settings 
- * three Extra Elements and increase the "ClassXX" by 1
- * As an Example Deathknight is already there as comment.
- *  
- * add 3 to the $classcount in row 462
- * 
- * Copy paste a part of the HTML Code and Enter it directly unter it (Example: <!-- Warrior --> .......to..... <!-- Warrior END -->)
- * 
- * Add some Images with 60x60 into portal/wowtbcrecruit/wcf/images/recruitment/ and name it like "class_warrior.png" or "warrior_spec_2.png"
- * 
- * Uncomment /Add lines in the language File (Example in: "portal/wowtbcrecruit/language/english.php")
  * 
  */
 
@@ -40,20 +27,56 @@ class wowtbcrecruit_portal extends portal_generic {
 	);
 
 	protected static $positions = array( 'left1', 'left2', 'right');
-	public function get_settings($state){
-		$settings	= array();
+	
 
+	public function get_settings($state){
+
+###############################################
+$classes	= array(
+	1 => array(0 => "druid",1 => 4,),
+	2 => array (0 => "hunter",1 => 3,),
+	3 => array (0 => "mage",1 => 3,),
+	4 => array (0 => "paladin",1 => 3,),
+	5 => array(0 => "priest",1 => 3,),
+	6 => array (0 => "shaman",1 => 3,),
+	7 => array (0 => "rogue",1 => 3,),
+	8 => array (0 => "warlock",1 => 3,),
+	9 => array(0 => "warrior",1 => 3,),
+	10 => array(0 => "deathknight",1 => 3,),
+	11 => array(0 => "monk",1 => 3,),
+	12 => array(0 => "demonhunter",1 => 2,),
+);
+###############################################
+foreach($classes as $value) {
+	$classcount += $value[1];
+}
+###############################################
+$arrlength = count($classes);
+###############################################
+
+
+		$settings	= array();
 		$settings['Fraction'] = array(
 			'type'		=> 'radio',
 			'class'		=> 'js_reload',
 			'options'	=> array(
 				'recruit_Alliance'	=> $this->user->lang('recruit_Alliance'),
 				'recruit_Horde'	=> $this->user->lang('recruit_Horde'),
-		
 			),
 		);
 
-		for ($i=1;$i<=28;$i++) { 
+		$settings['Expansion'] = array(
+			'type'		=> 'radio',
+			'class'		=> 'js_reload',
+			'options'	=> array(
+				'recruit_Classic'	=> $this->user->lang('recruit_Classic'),
+				'recruit_WotLK'	=> $this->user->lang('recruit_WotLK'),
+				'recruit_MoP'	=> $this->user->lang('recruit_MoP'),
+				'recruit_Legion'	=> $this->user->lang('recruit_Legion'),
+			),
+		);
+
+		for ($i=1;$i<=$classcount;$i++) { 
 			$recruit = array();
 			for ($j=0;$j<=4;$j++){
 				$recruit['recruit_'.$j] = $this->user->lang('recruit_'.$j);
@@ -77,249 +100,80 @@ class wowtbcrecruit_portal extends portal_generic {
 
 	public function output() {
 
-#To increase Classes add 3 to $classcount
+###############################################
+$classes	= array(
+	1 => array(0 => "druid",1 => 4,),
+	2 => array (0 => "hunter",1 => 3,),
+	3 => array (0 => "mage",1 => 3,),
+	4 => array (0 => "paladin",1 => 3,),
+	5 => array(0 => "priest",1 => 3,),
+	6 => array (0 => "shaman",1 => 3,),
+	7 => array (0 => "rogue",1 => 3,),
+	8 => array (0 => "warlock",1 => 3,),
+	9 => array(0 => "warrior",1 => 3,),
+	10 => array(0 => "deathknight",1 => 3,),
+	11 => array(0 => "monk",1 => 3,),
+	12 => array(0 => "demonhunter",1 => 2,),
+);
+###############################################
+foreach($classes as $value) {
+	$classcount += $value[1];
+}
+###############################################
+$arrlength = count($classes);
+if($this->config('Expansion') == 'recruit_Classic'){$arrlength = $arrlength-3;}	
+if($this->config('Expansion') == 'recruit_WotLK'){$arrlength = $arrlength-2;}	
+if($this->config('Expansion') == 'recruit_MoP'){$arrlength = $arrlength-1;}		
+###############################################
+$searchcount=4;
+for($i=1; $i<=$classcount; $i++){
+	$o = "Class".$i;
+	for($j=1; $j<=$searchcount; $j++){
+		if($this->config($o) == "recruit_$j"){${"Down".$i}=$j;}	
+	}
+}	
+###############################################		
+$jspath=$this->server_path."portal/wowtbcrecruit/wcf/style/";
+$csspath=$this->server_path."portal/wowtbcrecruit/wcf/js/";
+$Imagepath=$this->server_path."portal/wowtbcrecruit/wcf/images/recruitment/";
+###############################################
+		if($this->config('Fraction') == 'recruit_Alliance'){$fraction="alliance_logo.png";$border='alliance';}	
+		if($this->config('Fraction') == 'recruit_Horde'){$fraction="horde_logo.png";$border='horde';}
+###############################################
 
-		$classcount=28;
-		$searchcount=4;
+#Start Oben
+$out= 
+"<div class='containerContent'>
+<link rel='stylesheet' type='text/css' href='".$jspath."recruitmentbox.css'>
+<script type='text/javascript' src='".$csspath."recruitmentbox.js'></script>
+<div class='recruitmentBox'>
+	<div class='recruitmentBack' id='recruitback'style='background-image:url(".$Imagepath."".$fraction.");'></div>";
 
-		for($i=1; $i<=$classcount; $i++){
-			$o = "Class".$i;
-			for($j=1; $j<=$searchcount; $j++){
-				if($this->config($o) == "recruit_$j"){${"Down".$i}=$j;}	
-			}
-		}	
-			
-		$jspath=$this->server_path."portal/wowtbcrecruit/wcf/style/";
-		$csspath=$this->server_path."portal/wowtbcrecruit/wcf/js/";
-		$Imagepath=$this->server_path."portal/wowtbcrecruit/wcf/images/recruitment/";
-
-		if($this->config('Fraction') == 'recruit_Alliance'){$fraction="alliance_logo.png";}	
-		if($this->config('Fraction') == 'recruit_Horde'){$fraction="horde_logo.png";}
-		if($this->config('Fraction') == 'recruit_Alliance'){$border='alliance';}
-		if($this->config('Fraction') == 'recruit_Horde'){$border='horde';}
-
-
-
-
-
-		$out= "<div class='containerContent'>
-		<link rel='stylesheet' type='text/css' href='".$jspath."recruitmentbox.css'>
-		<script type='text/javascript' src='".$csspath."recruitmentbox.js'></script>
-		<div class='recruitmentBox'>
-			<div class='recruitmentBack' id='recruitback'style='background-image:url(".$Imagepath."".$fraction.");'></div>
-			<!-- Druid -->
-			<div class='classType' id='druid'>
-				<div class='classIcon ".$border."'>
-					<img src='".$Imagepath."class_druid.png' class='classImage'>
-				</div>
-				<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class1")."</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class4")."'>
-					<div class='classSpecCounter'>".$Down4."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."druid_spec_4.png' class='specImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class3")."'>
-					<div class='classSpecCounter'>".$Down3."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."druid_spec_3.png' class='specImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class2")."'>
-					<div class='classSpecCounter'>".$Down2."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."druid_spec_2.png' class='specImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class1")."'>
-					<div class='classSpecCounter'>".$Down1."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."druid_spec_1.png' class='specImage'>
-				</div>
+	$count = 1;
+for ($i = 1; $i <= $arrlength; $i++) {
+	#Classstart
+	$out .=" 
+		<div class='classType' id='".$classes[$i][0]."'>
+			<div class='classIcon ".$border."'>
+				<img src='".$Imagepath."class_".$classes[$i][0].".png' class='classImage'>
 			</div>
-			<!-- Hunter -->
-			<div class='classType' id='hunter'>
-				<div class='classIcon ".$border."'>
-					<img src='".$Imagepath."class_hunter.png' class='classImage'>
-				</div>
-				<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class2")."</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class7")."'>
-					<div class='classSpecCounter'>".$Down7."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."hunter_spec_3.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class6")."'>
-					<div class='classSpecCounter'>".$Down6."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."hunter_spec_2.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class5")."'>
-					<div class='classSpecCounter'>".$Down5."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."hunter_spec_1.png' class='classImage'>
-				</div>
-			</div>
-			<!-- Mage -->
-			<div class='classType' id='mage'>
-				<div class='classIcon ".$border."'>
-					<img src='".$Imagepath."class_mage.png' class='classImage'>
-				</div>
-				<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class3")."</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class10")."'>
-					<div class='classSpecCounter'>".$Down10."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."mage_spec_3.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class9")."'>
-					<div class='classSpecCounter'>".$Down9."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."mage_spec_2.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class8")."'>
-					<div class='classSpecCounter'>".$Down8."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."mage_spec_1.png' class='classImage'>
-				</div>
-			</div>
-			<!-- Paladin -->
-			<div class='classType' id='paladin'>
-				<div class='classIcon ".$border."'>
-					<img src='".$Imagepath."class_paladin.png' class='classImage'>
-				</div>
-				<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class4")."</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class13")."'>
-					<div class='classSpecCounter'>".$Down13."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."paladin_spec_3.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class12")."'>
-					<div class='classSpecCounter'>".$Down12."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."paladin_spec_2.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class11")."'>
-					<div class='classSpecCounter'>".$Down11."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."paladin_spec_1.png' class='classImage'>
-				</div>
-			</div>
-			<!-- Priest -->
-			<div class='classType' id='priest'>
-				<div class='classIcon ".$border."'>
-					<img src='".$Imagepath."class_priest.png' class='classImage'>
-				</div>
-				<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class5")."</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class16")."'>
-					<div class='classSpecCounter'>".$Down16."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."priest_spec_3.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class15")."'>
-					<div class='classSpecCounter'>".$Down15."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."priest_spec_2.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class14")."'>
-					<div class='classSpecCounter'>".$Down14."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."priest_spec_1.png' class='classImage'>
-				</div>
-			</div>
-			<!-- Shaman -->
-			<div class='classType' id='shaman'>
-				<div class='classIcon ".$border."'>
-					<img src='".$Imagepath."class_shaman.png' class='classImage'>
-				</div>
-				<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class6")."</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class19")."'>
-					<div class='classSpecCounter'>".$Down19."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."shaman_spec_3.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class18")."'>
-					<div class='classSpecCounter'>".$Down18."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."shaman_spec_2.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class17")."'>
-					<div class='classSpecCounter'>".$Down17."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."shaman_spec_1.png' class='classImage'>
-				</div>
-			</div>
-			<!-- Rogue -->
-			<div class='classType' id='rogue'>
-				<div class='classIcon ".$border."'>
-					<img src='".$Imagepath."class_rogue.png' class='classImage'>
-				</div>
-				<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class7")."</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class22")."'>
-					<div class='classSpecCounter'>".$Down22."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."rogue_spec_3.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class21")."'>
-					<div class='classSpecCounter'>".$Down21."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."rogue_spec_2.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class20")."'>
-					<div class='classSpecCounter'>".$Down20."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."rogue_spec_1.png' class='classImage'>
-				</div>
-			</div>
-			<!-- Warlock -->
-			<div class='classType' id='warlock'>
-				<div class='classIcon ".$border."'>
-					<img src='".$Imagepath."class_warlock.png' class='classImage'>
-				</div>
-				<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class8")."</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class25")."'>
-					<div class='classSpecCounter'>".$Down25."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."warlock_spec_3.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class24")."'>
-					<div class='classSpecCounter'>".$Down24."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."warlock_spec_2.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class23")."'>
-					<div class='classSpecCounter'>".$Down23."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."warlock_spec_1.png' class='classImage'>
-				</div>
-			</div>
-			<!-- Warrior -->
-			<div class='classType' id='warrior'>
-				<div class='classIcon ".$border."'>
-					<img src='".$Imagepath."class_warrior.png' class='classImage'>
-				</div>
-				<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class9")."</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class28")."'>
-					<div class='classSpecCounter'>".$Down28."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."warrior_spec_3.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class27")."'>
-					<div class='classSpecCounter'>".$Down27."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."warrior_spec_2.png' class='classImage'>
-				</div>
-				<div class='classSpec ".$border."' title='".$this->user->lang("wowtbcrecruit_s_Class26")."'>
-					<div class='classSpecCounter'>".$Down26."</div><!-- Activate Spec here -->
-					<div class='classSpecOverlay' id='inactive'></div>
-					<img src='".$Imagepath."warrior_spec_1.png' class='classImage'>
-				</div>
-			</div>
-			<!-- Warrior END -->
-			</div></div>" ;
-		
-/*For More Classes Copy from Warrior to Warrior END and put it directly under it. Alter the variables like this example:
-wowtbcrecruit_s_Class26	---> wowtbcrecruit_s_Class27
-$Down26					---> $Down27
-warrior_spec_1.png  	---> monk_spec_1.png
-*/
+			<div class='className'>".$this->user->lang("wowtbcrecruit_c_Class".$i."")."</div>";
 
-
+			for ($j = 1; $j <=  $classes[$i][1]; $j++) {
+				#Speccstart
+				$out .=" 	
+						<div class='classSpec ".$border."' alt='".$this->user->lang("wowtbcrecruit_s_Class".$count."")."'>
+							<div class='classSpecCounter'>".${"Down".$count}."</div><!-- Activate Spec here -->
+							<div class='classSpecOverlay' id='inactive'></div>
+							<img src='".$Imagepath."".$classes[$i][0]."_spec_".$j.".png' class='specImage'>
+						</div>";
+					$count++;
+					}	
+#Classend
+$out .="</div>";
+}
+#Ende
+$out .="</div></div>" ;
 		return $out;
 	}
 }
