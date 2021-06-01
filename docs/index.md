@@ -7,6 +7,13 @@ Click here: [**Download**](https://github.com/Motrish/wowrecruit/raw/main/docs/w
 
 ## Installation
 
+1) Go to Administration -> Extensions -> Extension Management -> Manual Upload
+2) upload the zip-File.
+3) Go to Administration -> Portal -> Portal Module Management
+4) Edit the Layout you want to have the Module on.
+5) Drag and Drop the WoW Recruit in the desired position.
+
+
 ## Configuration
 
 1) Choose Your Faction
