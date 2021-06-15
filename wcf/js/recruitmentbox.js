@@ -35,7 +35,7 @@ jQuery(document).ready
 					var text3 = 'The recruitment for this specialization is closed.';}
 				else if(document.documentElement.lang == "ru"){ 
 					var text1 = 'Набор открыт.<br>Присоедениться!';
-					var text2 = 'Кол-во свободных мест на класс: ';
+					var text2 = 'Требуется: ';
 					var text3 = 'Набор персонажей данной специализации закрыт.';}					
 								
 				// Hover over code
